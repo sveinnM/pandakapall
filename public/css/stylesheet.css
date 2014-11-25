@@ -1,0 +1,310 @@
+html, body {
+	background: #faf9f0;
+	font-family: 'Georgia';
+	font-size: 16px;
+	color: #686868;
+}
+
+div#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+	opacity: 0.1;
+	z-index: 100;
+	display: none;
+	/*transition: opacity 0.5;*/
+}
+
+form#signUpBox {
+	position: fixed;
+	top: 150px;
+	left: 550px;
+	z-index: 101;
+	background: #faf9f0;
+	border-radius: 1em;
+	display: none;
+	transition: display 2s;
+}
+
+div.signUpSet {
+	position: relative;
+	padding: 1em;
+}
+
+form#signUpBox div.signUpSet label#errorName, label#errorNameID {
+	color: red;
+	font-size: 0.8em;
+}
+
+div#signUpDiv {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-right: 1em;
+}
+
+div#signUpDiv a {
+	cursor: pointer;
+	text-decoration: none;
+	color: blue;
+}
+
+div#signUpDiv a:visited {
+	color: blue;
+}
+
+input[type="text"], input[type="password"], textarea {
+	height: 25px;
+	border: 2px solid #dadada;
+    border-radius: 7px;
+    padding: 1em;
+}
+
+input[type="text"]:focus, input[type="password"]:focus textarea:focus {
+	outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+
+div.container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 30%;
+	font-family: 'Quicksand';
+	background: #fa5b4d;
+	position: absolute;
+	color: #fff;
+	border-bottom: 5px solid black
+  	text-shadow: 0px -1px 0px #df1806 30%
+}
+
+header h1 {
+	margin-top: 60px;
+	text-align: center;
+	font-size: 1.56em;
+}
+
+nav.navbar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-size: 1.2em;
+}
+
+nav.navbar a {
+	color: inherit;
+	text-decoration: none;
+	padding: 1em;
+}
+
+nav.navbar:hover a {
+	opacity: 0.4;
+	transition: opacity 0.5s;
+}
+
+nav.navbar a:hover {
+	color: #fff;
+	transition: color 1s;
+	opacity: 1;
+}
+
+nav.navbarSticky {
+	position: fixed !important;
+	top: 0;
+	font-size: 1.2em;
+	width: 100%;
+	background: #fa5b4d;
+	z-index: 5;
+}
+
+nav.navbarSticky a {
+	color: inherit;
+	text-decoration: none;
+	padding: 1em;
+}
+
+nav.navbarSticky:hover a {
+	opacity: 0.4;
+	transition: opacity 0.5s;
+}
+
+nav.navbarSticky a:hover {
+	color: #fff;
+	transition: color 1s;
+	opacity: 1;
+}
+
+main div.content {
+	position: relative;
+	width: 600px;
+	margin: 250px auto;
+	overflow: hidden;
+}
+
+main div.content form {
+	padding-top: 3em;
+}
+
+main div.contactMe {
+	padding-bottom: 1em;
+}
+
+main div.contactMe input[type="text"] {width: 210px;}
+main div.contactMe textarea {
+	width: 300px;
+	height: 100px;
+}
+
+input[type="button"], button {
+	color: #fff;
+	width: 180px;
+	border-radius: 2px;
+	padding: 12px 5px;
+	background: linear-gradient(to bottom, #3b6998 0%,#0b4073 100%);
+	box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+	text-transform: uppercase;
+	margin: 0 auto;
+	border: 0;
+}
+
+input[type="button"]:hover, button:hover {cursor: pointer; background: linear-gradient(to bottom, #5F89B4 0%,#0F4579 100%)}
+
+footer {
+	font-size: 0.8em;
+	margin: 0 500px;
+	border-top: 1px solid #ccc;
+}
+
+div#newGame {
+	padding: 2em;
+}
+
+div#newGame img.img {
+	position: relative;
+	box-shadow: 10px 10px 5px #888888;
+	width: 80px;
+	height: 100px;
+	margin: -25px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+/*
+Design of highscore table starts here
+*/
+
+table {
+	/*background: #f5f5f5;*/
+	border-collapse: separate;
+	box-shadow: inset 0 1px 0 #fff;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 30px auto;
+	text-align: left;
+	width: 800px;
+}	
+
+th {
+	background: linear-gradient(to bottom, #3b6998 0%,#0b4073 100%);
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	color: #fff;
+  	font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;	
+}
+
+th:after {
+	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+	content: '';
+	display: block;
+	height: 25%;
+	left: 0;
+	margin: 1px 0 0 0;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+}
+
+th:first-child {
+	border-left: 1px solid #777;	
+	box-shadow: inset 1px 1px 0 #999;
+}
+
+th:last-child {
+	box-shadow: inset -1px 1px 0 #999;
+}
+
+td {
+	border-right: 1px solid #fff;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #e8e8e8;
+	padding: 10px 15px;
+	position: relative;
+	transition: all 300ms;
+}
+
+td:first-child {
+	box-shadow: inset 1px 0 0 #fff;
+}	
+
+td:last-child {
+	/*border-right: 1px solid #fff;*/
+	box-shadow: inset -1px 0 0 #fff;
+}	
+
+tr {
+	/*background: url(http://jackrugile.com/images/misc/noise-diagonal.png);	*/
+}
+
+tr:nth-child(odd) td {
+	/*background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	*/
+}
+
+tr:last-of-type td {
+	box-shadow: inset 0 -1px 0 #fff; 
+}
+
+tr:last-of-type td:first-child {
+	box-shadow: inset 1px -1px 0 #fff;
+}	
+
+tr:last-of-type td:last-child {
+	box-shadow: inset -1px -1px 0 #fff;
+}	
+
+tbody:hover td {
+	color: transparent;
+	text-shadow: 0 0 3px #aaa;
+}
+
+tbody:hover tr:hover td {
+	color: #444;
+	text-shadow: 0 1px 0 #fff;
+}
+
+/*
+End of highscore design
+*/
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
