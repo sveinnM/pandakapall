@@ -1,6 +1,6 @@
 <?php 
 include('views/header.php');
-echo "svenni sygur reynir";
+echo "oli sygur jónsa";
 $part = "";
 if (isset($_GET['part'])) {
   $part = $_GET['part'];
