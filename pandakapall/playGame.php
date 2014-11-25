@@ -66,35 +66,35 @@ switch ($method) {
   	break;
 }
 
-$_SESSION["game"] = serialize($game);
+function refresh($game) {
+	if(!$game->isWin()){
+		$hendi = $game->getHand();
+		foreach ($hendi as $index => $card) {
+			echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' height='100px' width='80px'>";
+		}
 
+		echo "<p id='score'>Score ". $game->getScore() ."</p>";
+		if ($game->isDeckEmpty()) {
+			// setcookie("empty_cookie", uniqid(), time() + 86400*7, "/");
+			echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
+		}
+	}
+}
+refresh($game);
 if ($game->isWin()) {
+	$game = new Game();
 	$db = new Database();
   	echo "WINNER";
-  	$db->insertIntoHighscores($_COOKIE["name_cookie"], $game->getScore());
-  	var_dump($db->getHighestScores());
 }
-
-function refresh($game) {
-	$hendi = $game->getHand();
-	foreach ($hendi as $index => $card) {
-		echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' height='100px' width='80px'>";
-	}
-
-	echo "<p id='score'>Score ". $game->getScore() ."</p>";
-	if ($game->isDeckEmpty()) {
-		// setcookie("empty_cookie", uniqid(), time() + 86400*7, "/");
-		echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
-	}
-}
-
-refresh($game);
 
 if (isset($_POST["signOut"])) {
 	setcookie("login_cookie", uniqid(), time() - 86400, "/");
 	setcookie("name_cookie", uniqid(), time() - 86400, "/");
 }
 
+
+
+$_SESSION["game"] = serialize($game);
 // } 
 // else if (isset($_COOKIE["game_cookie"])) {
 
