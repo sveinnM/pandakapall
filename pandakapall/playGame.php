@@ -1,7 +1,7 @@
 <?php
 require("CardDeck.php");
 require("Game.php");
-require("Database.php");
+require("../Database.php");
 // require("newGame.php");
 
 if (isset($_POST["nameID"])) {
@@ -82,8 +82,9 @@ function refresh($game) {
 }
 refresh($game);
 if ($game->isWin()) {
-	$game = new Game();
 	$db = new Database();
+	$db->insertIntoHighscores('oli', $game->getScore());
+	$game = new Game();
   	echo "WINNER";
 }
 

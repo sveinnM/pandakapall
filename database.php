@@ -24,7 +24,7 @@ class Database{
 	}
 
 	public function getHighestScores(){
-		$query = $this->pdo->prepare("SELECT name, score FROM Highscores LIMIT 10");
+		$query = $this->pdo->prepare("SELECT name, score FROM Highscores ORDER BY score DESC LIMIT 10");
 		$result = $query->execute(array());
 		$highscores = $query->fetchAll(PDO::FETCH_ASSOC);
 		return $highscores;
