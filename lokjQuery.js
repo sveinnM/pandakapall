@@ -1,6 +1,7 @@
 var elementPos = $("nav").offset();
 
 $(document).ready(function() {
+	// alert("hello");
 
 	$("#contButton").click(function() {
 		contactMe();
@@ -46,6 +47,11 @@ $(document).ready(function() {
 
 	$(window).on("load", function() {
 		refresh();
+	});
+
+	$(".myScoreBoardForm").submit(function(e) {
+		e.preventDefault();
+		myScoreBoard();
 	});
 });
 
@@ -93,7 +99,6 @@ function signUpEffect(e) {
 	});
 
 	$("#overlay").click(function() {
-		// $("#overlay, #signUpBox");	
 		$("#overlay, #signUpBox").hide();
 
 		$("#register").off("scroll touchmove mousewheel")
@@ -113,8 +118,6 @@ function stickyNav() {
 function signUp() {
 	var name = $("#name").val();
 	var nameID = $("#nameID").val();
-	// var str = "Velkomin/n ";
-	// str.substring(0,1).toUpperCase();
 
 	if (name !== "" && nameID !== "") {
 		$.ajax({
@@ -124,12 +127,7 @@ function signUp() {
 			success: function(data) {
 				console.log("User sign up");
 				$("#overlay, #signUpBox").hide();
-				// console.log(data);
 				window.location.reload();
-				// console.log(data);
-				// $("#newGame").append(data);
-				// $("#signUpDiv").empty();
-				// $("#signUpDiv").append("<strong><h3 id='welcome'>Velkomin/n " + name + "!</h3></strong>");
 			}
 		});
 	}
@@ -166,10 +164,9 @@ function pandaNewGame() {
 		data: {newGame: true},
 		success: function(data) {
 			console.log("Starting new game");
-			// $("#newGame").empty();
+			// $("#inputScoreName").empty();
 			$("#newGame").html(data);
-			// $("#addCard").show();
-			// $("#undo").show();
+			$(".myScoreBoardForm").removeClass("show");
 		}
 	});
 }
@@ -181,8 +178,7 @@ function drawCard() {
 		data: {drawCard: true},
 		success: function(data) {
 			console.log("Drawing 1 card");
-			// $(".cards").hide();
-			// $("#newGame").empty();
+			$(".myScoreBoardForm").removeClass("show");
 			$("#newGame").html(data);
 		}
 	});
@@ -195,7 +191,7 @@ function undo() {
 		data: {undo: true},
 		success: function(data) {
 			console.log("Undo last move");
-			// $("#newGame").empty();
+			$(".myScoreBoardForm").removeClass("show");
 			$("#newGame").html(data);
 		}
 	})
@@ -207,10 +203,12 @@ function removeTwoFour(id) {
 		url: "pandakapall/playGame.php",
 		data: {remove: id},
 		success: function(data) {
-			// console.log(data);
-			// $("#newGame").empty();
 			$("#newGame").html(data);
 			console.log("Removing");
+
+			if ($("#newGame:has(p.win)")) {
+				$(".myScoreBoardForm").addClass("show");
+			}
 		}
 	});
 }
@@ -235,4 +233,20 @@ function refresh() {
 			$("#newGame").html(data);
 		}
 	});
+}
+
+function myScoreBoard() {
+	var name = $(".myScoreBoardName").val();
+
+	if (name !== "") {
+		$.ajax({
+			type: "POST",
+			url: "pandakapall/playGame.php",
+			data: {name: name},
+			success: function(data) {
+				console.log(name + " moved to personal scoreboard");
+				console.log(data);
+			}
+		})
+	}
 }

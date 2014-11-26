@@ -1,9 +1,11 @@
 <?php
-class Database{
+class Database {
 	private $pdo;
 
-	public function __construct(){
-		$file_db = new PDO('sqlite:games.db');
+	public function __construct() {
+		$root = $_SERVER["DOCUMENT_ROOT"];
+
+		$file_db = new PDO("sqlite:" . $root . "/pandakapall/games.db");
 		$file_db->setAttribute(PDO::ATTR_ERRMODE, 
                         PDO::ERRMODE_EXCEPTION);
 
@@ -14,29 +16,31 @@ class Database{
 		$file_db->exec("CREATE TABLE IF NOT EXISTS MyHighscore (
         				name TEXT, 
         				score TEXT)");
-
 		$this->pdo = $file_db;
 	}
 
-	public function insertIntoHighscores($name, $score){
+	public function insertIntoHighscores($name, $score) {
 		$query = $this->pdo->prepare("INSERT INTO Highscores(name, score) VALUES (:name, :score)");
 		$result = $query->execute(array('name' => $name, 'score' => $score, ));
 	}
 
-	public function getHighestScores(){
+	public function getHighestScores() {
 		$query = $this->pdo->prepare("SELECT name, score FROM Highscores ORDER BY score DESC LIMIT 10");
 		$result = $query->execute(array());
 		$highscores = $query->fetchAll(PDO::FETCH_ASSOC);
 		return $highscores;
 	}
 
-	public function insertIntoMyHighScore($name, $score, $id){
-		$query = $this->pdo->prepare("INSERT INTO MyHighscores(name, score, id) VALUES (:name, :score, :id)");
-		$result = $query->execute(array('name' => $name, 'score' => $score, 'id' => $id, ));
+	public function insertIntoMyHighscores($name, $score) {
+		$query = $this->pdo->prepare("INSERT INTO MyHighscore(name, score) VALUES (:name, :score)");
+		$result = $query->execute(array('name' => $name, 'score' => $score, ));
 	}
 
 	public function getMyHighestScores() {
-		
+		$query = $this->pdo->prepare("SELECT name, score FROM MyHighscore ORDER BY score DESC LIMIT 10");
+		$result = $query->execute(array());
+		$myHighscores = $query->fetchAll(PDO::FETCH_ASSOC);
+		return $myHighscores;
 	}
 
 	public function newGame($key, $game){

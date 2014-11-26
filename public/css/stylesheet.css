@@ -200,6 +200,19 @@ div#newGame img.img {
 	margin-top: 20px;
 }
 
+form.myScoreBoardForm {
+	display: none;
+}
+
+form.show {
+	display: block;
+}
+
+/*
+form.myScoreBoardForm input.show {
+	display: block;
+}*/
+
 /*
 Design of highscore table starts here
 */
