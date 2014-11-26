@@ -1,8 +1,7 @@
 <?php
 require("CardDeck.php");
 require("Game.php");
-require("../Database.php");
-// require("newGame.php");
+require("Database.php");
 
 if (isset($_POST["nameID"])) {
 	$cookie_value = md5($_POST["nameID"]);
@@ -13,9 +12,6 @@ if (isset($_POST["nameID"])) {
 		setcookie("name_cookie", $cookie_namevalue, time() + 86400, "/");
 	}
 }
-
-
-// if (isset($_COOKIE["game_cookie"])) {
 
 session_start();
 
@@ -28,6 +24,7 @@ session_start();
 
 if (isset($_SESSION["game"]) && isset($_SESSION["timeStamp"]) && (time() - $_SESSION["timeStamp"] < 86400*7)) {
   $game = unserialize($_SESSION["game"]);
+  $_SESSION["isWin"] = null;
 } else {
   $_SESSION["timeStamp"] = time();
   $game = new Game();
@@ -47,13 +44,6 @@ switch ($method) {
   case 'undo':
     $game->undo();
     break;
-  case 'hint':
-  	$res = $game->hint();
-  	if($res !== false){
-  		$card =  $game->getHand()[$res];
-  		echo "<img class='img' hint-id='$res' src='pandakapall/img/$card.png' height='100px' width='80px'>";
-  	}else{ echo "No card clickable";}
-  	break;
   case "remove":
 	$index = $_POST["remove"];
 
@@ -82,24 +72,35 @@ function refresh($game) {
 
 		echo "<p id='score'>Score ". $game->getScore() ."</p>";
 		if ($game->isDeckEmpty()) {
-			// setcookie("empty_cookie", uniqid(), time() + 86400*7, "/");
 			echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
 		}
 	}
 }
+
 refresh($game);
-if ($game->isWin()) {
-	$db = new Database();
-	$db->insertIntoHighscores('oli', $game->getScore());
-	$game = new Game();
-  	echo "WINNER";
+
+if ($game->isWin() or isset($_POST["nameScoreBoard"])) {
+	if (isset($_POST["nameScoreBoard"])) {
+		$db = new Database();
+		$db->insertIntoMyHighscores($_COOKIE["name_cookie"], $_SESSION["score"], $_COOKIE["login_cookie"]);
+		$db->insertIntoHighscores($_POST["nameScoreBoard"], $_SESSION["score"]);
+	} else {
+		// $db = new Database();
+	  	echo "<p class='win'>WINNER</p>";
+
+
+		$_SESSION["score"] = $game->getScore();
+		// var_dump($game->getScore());
+		// var_dump($_SESSION["score"]);
+
+		$game = new Game();
+	}
 }
 
 if (isset($_POST["signOut"])) {
 	setcookie("login_cookie", uniqid(), time() - 86400, "/");
 	setcookie("name_cookie", uniqid(), time() - 86400, "/");
 }
-
 
 
 $_SESSION["game"] = serialize($game);

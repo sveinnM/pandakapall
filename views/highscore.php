@@ -1,11 +1,11 @@
 <?php
-require("Database.php");
+require("pandakapall/Database.php");
 $db = new Database();
 $scores = $db->getHighestScores();
 ?>
 
 <main>
-	<div class="content">
+	<div class="content highscore">
 		<h2>Stigatafla</h2>
 		<table>
 			<thead>
