@@ -47,6 +47,13 @@ switch ($method) {
   case 'undo':
     $game->undo();
     break;
+  case 'hint':
+  	$res = $game->hint();
+  	if($res !== false){
+  		$card =  $game->getHand()[$res];
+  		echo "<img class='img' hint-id='$res' src='pandakapall/img/$card.png' height='100px' width='80px'>";
+  	}else{ echo "No card clickable";}
+  	break;
   case "remove":
 	$index = $_POST["remove"];
 

@@ -5,7 +5,7 @@
 		</div>
 		<button id="addCard">Draw</button>
 		<button id="undo">Undo</button>
-		<div id="moveLastButton">
+		<button id="hint">Hint</button>
 		</div>
 	</div>
 </main>
