@@ -34,6 +34,10 @@ $(document).ready(function() {
 		undo();
 	});
 
+	$("#hint").click(function() {
+		hint();
+	});
+
 	$("#newGame").on("click", "img", function() {
 		var id = $(this).attr("data-id");
 		removeTwoFour(id);
@@ -180,9 +184,6 @@ function drawCard() {
 		url: "pandakapall/playGame.php",
 		data: {drawCard: true},
 		success: function(data) {
-			console.log("Drawing 1 card");
-			// $(".cards").hide();
-			// $("#newGame").empty();
 			$("#newGame").html(data);
 		}
 	});
@@ -195,7 +196,17 @@ function undo() {
 		data: {undo: true},
 		success: function(data) {
 			console.log("Undo last move");
-			// $("#newGame").empty();
+			$("#newGame").html(data);
+		}
+	})
+}
+
+function hint() {
+	$.ajax({
+		type: "POST",
+		url: "pandakapall/playGame.php",
+		data: {hint: true},
+		success: function(data) {
 			$("#newGame").html(data);
 		}
 	})
@@ -207,10 +218,7 @@ function removeTwoFour(id) {
 		url: "pandakapall/playGame.php",
 		data: {remove: id},
 		success: function(data) {
-			// console.log(data);
-			// $("#newGame").empty();
 			$("#newGame").html(data);
-			console.log("Removing");
 		}
 	});
 }

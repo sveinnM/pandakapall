@@ -1,6 +1,5 @@
 <main>
 	<div class="content">
-	<?php echo var_dump($_COOKIE); ?>
 		<h2>Velkomin!</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus facilisis diam quis sodales. 
   		Integer rhoncus eros quis sapien congue, non placerat nibh gravida. Aliquam erat volutpat. Pellentesque 

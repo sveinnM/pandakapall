@@ -98,8 +98,13 @@ class Game{
 	}
 
 	public function hint(){
-		//Todo
+		for ($i=0; $i < sizeof($this->hand); $i++) { 
+			if( $this->checkTwo($i) or $this->checkFour($i) ) {
+				return $i;
+			}
 		}
+		return false;
+	}
 
 	public function gamehistory(){
 		$this->handhistory[] = $this->hand;
