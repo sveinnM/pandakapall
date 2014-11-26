@@ -1,7 +1,8 @@
 <?php
 require("CardDeck.php");
 require("Game.php");
-require("Database.php");
+require("../Database.php");
+// require("newGame.php");
 
 if (isset($_POST["nameID"])) {
 	$cookie_value = md5($_POST["nameID"]);
@@ -12,6 +13,9 @@ if (isset($_POST["nameID"])) {
 		setcookie("name_cookie", $cookie_namevalue, time() + 86400, "/");
 	}
 }
+
+
+// if (isset($_COOKIE["game_cookie"])) {
 
 session_start();
 
@@ -24,7 +28,6 @@ session_start();
 
 if (isset($_SESSION["game"]) && isset($_SESSION["timeStamp"]) && (time() - $_SESSION["timeStamp"] < 86400*7)) {
   $game = unserialize($_SESSION["game"]);
-  $_SESSION["isWin"] = null;
 } else {
   $_SESSION["timeStamp"] = time();
   $game = new Game();
@@ -78,19 +81,11 @@ function refresh($game) {
 	}
 }
 refresh($game);
-
 if ($game->isWin()) {
-	$_SESSION["isWin"] = $game->isWin();
-	// var_dump($_SESSION);
-	// var_dump($_SESSION["isWin"]);
 	$db = new Database();
-  	echo "<p class='win'>WINNER</p>";
-  	// require("../views/play.php");
-  	// echo "<input type='text' placeholder='Nafn á stigatöflu' />";
 	$db->insertIntoHighscores('oli', $game->getScore());
-	$_SESSION["name"] = $_POST["name"];
-	$db->insertIntoMyHighscores($_SESSION["name"], $game->getScore());
 	$game = new Game();
+  	echo "WINNER";
 }
 
 if (isset($_POST["signOut"])) {

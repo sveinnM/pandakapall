@@ -5,12 +5,7 @@
 		</div>
 		<button id="addCard">Draw</button>
 		<button id="undo">Undo</button>
-		<div id="myScoreBoardDiv">
-			<form class="myScoreBoardForm">
-				<input type="text" placeholder="Nafn fyrir stigatöflu" class="myScoreBoardName" />
-			</form>
+		<div id="moveLastButton">
 		</div>
-		<!-- <div id="moveLastButton"> -->
-		<!-- </div> -->
 	</div>
 </main>
