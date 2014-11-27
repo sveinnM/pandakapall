@@ -133,6 +133,10 @@ function signUp() {
 				console.log("User sign up");
 				$("#overlay, #signUpBox").hide();
 				window.location.reload();
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				console.log("Object: " + XMLHttpRequest);
+				console.log("Error: " + textStatus);
 			}
 		});
 	}
@@ -158,6 +162,10 @@ function signOut() {
 		success: function(data) {
 			console.log("Signing out");
 			window.location.replace("index.php");
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	});
 }
@@ -172,6 +180,10 @@ function pandaNewGame() {
 			// $("#inputScoreName").empty();
 			$("#newGame").html(data);
 			$(".scoreBoardForm").hide();
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	});
 }
@@ -185,6 +197,10 @@ function drawCard() {
 			console.log("Drawing 1 card");
 			$(".scoreBoardForm").hide();
 			$("#newGame").html(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	});
 }
@@ -198,6 +214,10 @@ function undo() {
 			console.log("Undo last move");
 			$(".scoreBoardForm").hide();
 			$("#newGame").html(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	});
 }
@@ -216,6 +236,10 @@ function hint() {
 			
 			$(hintCard).addClass("hintCard");
 			$(hintCard).fadeTo("slow", 1);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	});
 }
@@ -233,6 +257,10 @@ function removeTwoFour(id) {
 				$("#overlay").show();
 				$(".scoreBoardForm").show();
 			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	});
 }
@@ -244,6 +272,10 @@ function moveLast() {
 		data: {lastfirst: true},
 		success: function(data) {
 			$("#newGame").html(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	})
 }
@@ -255,6 +287,10 @@ function refresh() {
 		data: {load: true},
 		success: function(data) {
 			$("#newGame").html(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	});
 }
@@ -267,6 +303,10 @@ function resetTable() {
 		success: function(data) {
 			console.log("Resetting table");
 			window.location.reload();
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("Object: " + XMLHttpRequest);
+			console.log("Error: " + textStatus);
 		}
 	});
 }
@@ -285,8 +325,13 @@ function scoreBoard(e) {
 				console.log(name + " moved to personal scoreboard");
 				$(".scoreBoardName").val("");
 				window.location.reload();
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				console.log("Object: " + XMLHttpRequest);
+				console.log("Error: " + textStatus);
 			}
 		});
+
 	} else if (name == "") {
 		$("#errorScoreBoardName").html("* Vinsamlegast settu inn nafn til að uppfæra stigatöflu");
 	}
