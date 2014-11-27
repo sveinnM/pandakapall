@@ -44,6 +44,11 @@ class Database {
 		return $myHighscores;
 	}
 
+	public function resetMyScores($key) {
+		$query = $this->pdo->prepare("DELETE * FROM MyHighscore WHERE key=?");
+		$result = $query->execute(array('key' => $key));
+	}
+
 	public function newGame($key, $game){
 		$game = serialize($game);
 		try{

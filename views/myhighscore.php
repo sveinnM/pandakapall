@@ -22,5 +22,14 @@ $scores = $db->getMyHighestScores();
 				?>
 			</tbody>
 		</table>
+		<button id='resetTable'>Reset</button>
+		<?php
+			if (isset($_POST['resetTable'])) {
+				$db->resetMyScores($_COOKIE['login_cookie']);
+				echo "PERRAVERTADUR";
+			}else {
+				echo "HOLOASDA";
+			}
+		?>
 	</div>
 </main>

@@ -7,10 +7,8 @@ if (isset($_POST["nameID"])) {
 	$cookie_value = md5($_POST["nameID"]);
 	$cookie_namevalue = $_POST["name"];
 
-	if (!isset($_COOKIE[$cookie_name])) {
-		setcookie("login_cookie", $cookie_value, time() + 86400, "/");
-		setcookie("name_cookie", $cookie_namevalue, time() + 86400, "/");
-	}
+	setcookie("login_cookie", $cookie_value, time() + 86400, "/");
+	setcookie("name_cookie", $cookie_namevalue, time() + 86400, "/");
 }
 
 session_start();
@@ -45,11 +43,12 @@ switch ($method) {
     $game->undo();
     break;
   case 'hint':
-  	$res = $game->hint();
-  	if($res !== false){
-  		$card =  $game->getHand()[$res];
-  		echo "<img class='img' hint-id='$res' src='pandakapall/img/$card.png' height='100px' width='80px'>";
-  	}else{ echo "No card clickable";}
+  	$index = $game->hint();
+  	if($index !== false){
+  		$card =  $game->getHand()[$index];
+  		echo "<label></label>";
+  		echo "<img class='img' id='hintcard' src='pandakapall/img/$card.png' height='100px' width='80px'>";
+  	}
   	break;
   case "remove":
 	$index = $_POST["remove"];

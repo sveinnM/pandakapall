@@ -11,50 +11,45 @@
 			<br>
 			
 
-			Dæmi til að losa sig við 2 spil:<br>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/S7.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/C5.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H10.png' height='100px' width='80px'>
-			<br>
-			<br>
-			Hér eru spilin sem hægt er að losa sig við:<br>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/S7.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/C5.png' height='100px' width='80px'>
-			<br>
-			<br>
-			Þar sem <br>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H10.png' height='100px' width='80px'>
-			<bR>
-			eru af sömu sort.
-			<br>
-			Alltaf skal velja fyrsta spil sem á að fjarlægja. Semsagt:
-			<br>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/S7.png' height='100px' width='80px'>
+			Dæmi til að losa sig við 2 spil:
+			<div>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/S7.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/C5.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H10.png' height='100px' width='80px'>
+			</div>
+			Hér eru spilin sem hægt er að losa sig við:
+			<div>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/S7.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/C5.png' height='100px' width='80px'>
+			</div>
 
-			<br>
-			<br>
-			Dæmi til að losa sig við 4 spil:<br>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/S7.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/C5.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/D3.png' height='100px' width='80px'>
-			<br>
-			<br>
+			Þar sem spilin eru af sömu sort.
+			<div>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H10.png' height='100px' width='80px'>
+			</div>
+			Alltaf skal velja fyrsta spil sem á að fjarlægja. Semsagt:
+			<div>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/S7.png' height='100px' width='80px'>
+			</div>
+			Dæmi til að losa sig við 4 spil:
+			<div>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/S7.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/C5.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/D3.png' height='100px' width='80px'>
+			</div>
 			Hér er hægt að losa sig við öll 4 spilin.
-			<br>
-			<br>
-			Þar sem <br>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/D3.png' height='100px' width='80px'>
-			<bR>
-			eru með sama gildið.
-			<br>
+			Þar sem spilin eru með sama gildið.
+			<div>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/D3.png' height='100px' width='80px'>
+			</div>
 			Alltaf skal velja fyrsta spil sem á að fjarlægja. Semsagt:
-			<br>
-			<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
-
+			<div>
+				<img class='img' id='examplecard' src='/pandakapall/pandakapall/img/H3.png' height='100px' width='80px'>
+			</div>
 		</p>
 	</div>
 </main>

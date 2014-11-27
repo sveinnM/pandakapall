@@ -38,6 +38,10 @@ $(document).ready(function() {
 		hint();
 	});
 
+	$("#resetTable").click(function() {
+		resetTable();
+	});
+
 	$("#newGame").on("click", "img", function() {
 		var id = $(this).attr("data-id");
 		removeTwoFour(id);
@@ -239,6 +243,17 @@ function refresh() {
 		data: {load: true},
 		success: function(data) {
 			$("#newGame").html(data);
+		}
+	});
+}
+
+function resetTable() {
+	$.ajax({
+		type: "POST",
+		url: "views/myhighscore.php",
+		data: {resetTable: true},
+		success: function(data) {
+			$("h2").html(data);
 		}
 	});
 }
