@@ -18,7 +18,7 @@
       // $cookie = new playGame();
       if (isset($_COOKIE["login_cookie"]) && isset($_COOKIE["name_cookie"])) {
         ?>
-          <p>Velkomin/n <?php echo $_COOKIE["name_cookie"]; ?> !</p>
+          <p>Velkomin/n <?php echo $_COOKIE["name_cookie"]; ?>!</p>
           <a class="signOut">Skrá út</a>
         <?php
       } else { ?>

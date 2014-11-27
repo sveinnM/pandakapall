@@ -17,7 +17,7 @@ class Database {
         				name TEXT, 
         				score TEXT,
         				key TEXT)");
-		
+
 		$this->pdo = $file_db;
 	}
 
@@ -39,7 +39,7 @@ class Database {
 	}
 
 	public function getMyHighestScores() {
-		$query = $this->pdo->prepare("SELECT name, score FROM MyHighscore WHERE key=? ORDER BY score DESC LIMIT 10");
+		$query = $this->pdo->prepare("SELECT name, score FROM MyHighscore WHERE key=? ORDER BY score ASC LIMIT 10");
 		$result = $query->execute(array($_COOKIE["login_cookie"]));
 		$myHighscores = $query->fetchAll(PDO::FETCH_ASSOC);
 		return $myHighscores;

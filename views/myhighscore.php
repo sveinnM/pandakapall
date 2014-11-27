@@ -6,7 +6,7 @@
 
 <main>
 	<div class="content">
-		<h2>MY HIGHSCORE</h2>
+		<h2>Stigataflan mín</h2>
 		<table>
 			<thead>
 				<tr>
@@ -25,6 +25,6 @@
 				?>
 			</tbody>
 		</table>
-		<button id="resetTable">Reset</button>
+		<button id="resetTable">Hreinsa</button>
 	</div>
 </main>

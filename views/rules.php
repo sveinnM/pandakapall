@@ -1,12 +1,12 @@
 <main>
 	<div class="content">
-		<h2>REGLUR</h2>
+		<h2>Reglur</h2>
 		
 			<p>Leikmaðurinn byrjar á að draga 4 spil og geyma á hendi sér.</p>
 			<p>Markmið leiksins er að losa sig við spil og sigur næst með því að vera með 2 spil eða færri á hendi.</p>
 			<p>Hægt er að losa sig við spil á tvennan hátt:</p>
 			<ul>
-				<li>Ef spil með 2 spilum á milli sín hafa sömu sort er hægt að henda spilunum á milli</li>
+				<li>Ef spil með 2 spilum á milli sín hafa sömu sort er hægt að henda spilunum á milli.</li>
 				<li>Ef spil með 2 spilum á milli sín hafa sama gildið er hægt að henda öllum 4 spilunum.</li>
 			</ul>			
 			<br>

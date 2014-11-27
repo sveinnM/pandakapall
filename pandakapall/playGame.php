@@ -86,11 +86,11 @@ if ($game->isWin() or isset($_POST["nameScoreBoard"])) {
 		$db->insertIntoHighscores($_POST["nameScoreBoard"], $_SESSION["score"]);
 	} else {
 		if (isset($_COOKIE["login_cookie"])) {
+			$_SESSION["score"] = $game->getScore();
 			$db->insertIntoMyHighscores($_COOKIE["name_cookie"], $_SESSION["score"], $_COOKIE["login_cookie"]);
 		}
-		
+
 	  	echo "<p class='win'><strong>WINNER WINNER CHICKEN DINNER</strong></p>";
-		$_SESSION["score"] = $game->getScore();
 	}
 
 	$game = new Game();
