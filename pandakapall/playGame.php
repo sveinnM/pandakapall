@@ -1,7 +1,7 @@
 <?php
 require("CardDeck.php");
 require("Game.php");
-require("../Database.php");
+require("../database.php");
 // require("newGame.php");
 
 if (isset($_POST["nameID"])) {
@@ -58,7 +58,9 @@ switch ($method) {
 	$index = $_POST["remove"];
 
 	if ($game->checkTwo($index) and $game->checkFour($index)) {
-  		echo "YOLOSWAG";
+		// echo "<button id='pick2 onclick='x$game->removeTwo($index)'>2</button>";
+		// echo "<button id='pick4 onclick='$game->removeTwo($index)'>4</button>";
+		echo "breyta";
 	} else if ($game->checkTwo($index)) {
 		$game->removeTwo($index);
 	} else if ($game->checkFour($index)) {
@@ -74,17 +76,15 @@ switch ($method) {
 }
 
 function refresh($game) {
-	if(!$game->isWin()){
-		$hendi = $game->getHand();
-		foreach ($hendi as $index => $card) {
-			echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' height='100px' width='80px'>";
-		}
+	$hendi = $game->getHand();
+	foreach ($hendi as $index => $card) {
+		echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' height='100px' width='80px'>";
+	}
 
-		echo "<p id='score'>Score ". $game->getScore() ."</p>";
-		if ($game->isDeckEmpty()) {
-			// setcookie("empty_cookie", uniqid(), time() + 86400*7, "/");
-			echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
-		}
+	echo "<p id='score'>Score ". $game->getScore() ."</p>";
+	if ($game->isDeckEmpty()) {
+		// setcookie("empty_cookie", uniqid(), time() + 86400*7, "/");
+		echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
 	}
 }
 refresh($game);
