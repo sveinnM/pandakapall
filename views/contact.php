@@ -1,6 +1,6 @@
 <main>
 	<div class="content contactForm">
-		<h2>Hafðu samband við mig</h2>
+		<h2>Hafðu samband</h2>
 		<p>Ef það vakna upp einhverjar spurningar, þá endilega vertu í bandi:</p>
 			<form autocomplete="off" id="contactForm">
 				<div class="contactMe">

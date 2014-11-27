@@ -78,7 +78,7 @@ function contactMe() {
 		request.done(function(data) {
 			contact.children().hide();
 			var label = $("<label />");
-			var succ = $(label).append("Takk fyrir að hafa samband ! ég svara eins fljótt og ég get.").fadeIn("slow");
+			var succ = $(label).append("Takk fyrir að hafa samband ! Svarað verður eins fljótt og auðið er.").fadeIn("slow");
 			contact.append(succ);
 			console.log("Contact form send success")
 		});
