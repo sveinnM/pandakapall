@@ -1,5 +1,5 @@
 <?php
-require("pandakapall/Database.php");
+require("pandakapall/database.php");
 $db = new Database();
 $scores = $db->getHighestScores();
 ?>
