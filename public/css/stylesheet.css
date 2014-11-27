@@ -15,7 +15,6 @@ div#overlay {
 	opacity: 0.1;
 	z-index: 100;
 	display: none;
-	/*transition: opacity 0.5;*/
 }
 
 form#signUpBox {
@@ -26,7 +25,6 @@ form#signUpBox {
 	background: #faf9f0;
 	border-radius: 1em;
 	display: none;
-	transition: display 2s;
 }
 
 div.signUpSet {
@@ -34,7 +32,7 @@ div.signUpSet {
 	padding: 1em;
 }
 
-form#signUpBox div.signUpSet label#errorName, label#errorNameID {
+form#signUpBox div.signUpSet label#errorName, label#errorNameID, label#errorScoreBoardName {
 	color: red;
 	font-size: 0.8em;
 }
@@ -156,7 +154,7 @@ main div.highscore {
 	width: 1000px;
 }
 
-main div.content form {
+main div.content form#contactForm {
 	padding-top: 3em;
 }
 
@@ -204,16 +202,45 @@ div#newGame img.img {
 	margin-top: 20px;
 }
 
-form.myScoreBoardForm {
+form.scoreBoardForm {
+	position: fixed;
+	top: 150px;
+	left: 550px;
+	z-index: 101;
+	background: #faf9f0;
+	border-radius: 1em;
 	display: none;
 }
 
-form.show {
-	display: block;
+div#scoreBoardNameDiv {
+	position: relative;
+	/*margin: 0 auto;*/
+	padding: 1.5em;
 }
 
-label#errorScoreBoardName {
-	color: red;
+span.close:before {
+	content: "x";
+}
+
+span.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+/*form.show {
+	display: block;
+}*/
+
+label#hintCard {
+	display: none;
+}
+
+img.hintCard {
+    /*-webkit-filter: opacity(0.1);*/
+    opacity: 0.2;
+    /*-webkit-transition: opacity 5s;*/
 }
 
 /*

@@ -17,6 +17,7 @@ class Database {
         				name TEXT, 
         				score TEXT,
         				key TEXT)");
+		
 		$this->pdo = $file_db;
 	}
 
@@ -44,9 +45,11 @@ class Database {
 		return $myHighscores;
 	}
 
-	public function resetMyScores($key) {
-		$query = $this->pdo->prepare("DELETE * FROM MyHighscore WHERE key=?");
-		$result = $query->execute(array('key' => $key));
+	public function resetMyScores() {
+		$cookie = $_COOKIE["login_cookie"];
+
+		$query = $this->pdo->prepare("DELETE FROM MyHighscore WHERE key = ?");
+		$result = $query->execute(array($cookie));
 	}
 
 	public function newGame($key, $game){

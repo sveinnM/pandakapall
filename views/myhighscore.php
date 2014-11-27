@@ -1,11 +1,11 @@
 <?php
-require("pandakapall/database.php");
-$db = new Database();
-$scores = $db->getMyHighestScores();
+	require("pandakapall/database.php");
+	$db = new Database();
+	$scores = $db->getMyHighestScores();
 ?>
 
 <main>
-	<div class="content highscore">
+	<div class="content">
 		<h2>MY HIGHSCORE</h2>
 		<table>
 			<thead>
@@ -16,20 +16,15 @@ $scores = $db->getMyHighestScores();
 			</thead>
 			<tbody>
 				<?php 
-				foreach ($scores as $key => $line ) {
-						echo "<tr> <td><strong>" . $line['name'] . "</strong></td> <td>" . $line['score'] . "</td></tr>";
+					foreach ($scores as $key => $line) {
+						echo "<tr>";
+						echo "<td><strong>" . $line['name'] . "</strong></td>";
+						echo "<td>" . $line['score'] . "</td>";
+						echo "</tr>";
 					}
 				?>
 			</tbody>
 		</table>
-		<button id='resetTable'>Reset</button>
-		<?php
-			if (isset($_POST['resetTable'])) {
-				$db->resetMyScores($_COOKIE['login_cookie']);
-				echo "PERRAVERTADUR";
-			}else {
-				echo "HOLOASDA";
-			}
-		?>
+		<button id="resetTable">Reset</button>
 	</div>
 </main>

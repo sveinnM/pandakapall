@@ -51,8 +51,12 @@ $(document).ready(function() {
 		refresh();
 	});
 
-	$(".myScoreBoardForm").submit(function(e) {
-		myScoreBoard(e);
+	$(".scoreBoardForm").submit(function(e) {
+		scoreBoard(e);
+	});
+
+	$(".close").click(function() {
+		window.location.reload();
 	});
 });
 
@@ -167,7 +171,7 @@ function pandaNewGame() {
 			console.log("Starting new game");
 			// $("#inputScoreName").empty();
 			$("#newGame").html(data);
-			$(".myScoreBoardForm").removeClass("show");
+			$(".scoreBoardForm").hide();
 		}
 	});
 }
@@ -179,7 +183,7 @@ function drawCard() {
 		data: {drawCard: true},
 		success: function(data) {
 			console.log("Drawing 1 card");
-			$(".myScoreBoardForm").removeClass("show");
+			$(".scoreBoardForm").hide();
 			$("#newGame").html(data);
 		}
 	});
@@ -192,7 +196,7 @@ function undo() {
 		data: {undo: true},
 		success: function(data) {
 			console.log("Undo last move");
-			$(".myScoreBoardForm").removeClass("show");
+			$(".scoreBoardForm").hide();
 			$("#newGame").html(data);
 		}
 	});
@@ -204,8 +208,14 @@ function hint() {
 		url: "pandakapall/playGame.php",
 		data: {hint: true},
 		success: function(data) {
-			$(".myScoreBoardForm").removeClass("show");
+			$(".scoreBoardForm").hide();
 			$("#newGame").html(data);
+			var index = $("#hintCard").text();
+
+			var hintCard = $("#newGame").find("img[data-id="+index+"]");
+			
+			$(hintCard).addClass("hintCard");
+			$(hintCard).fadeTo("slow", 1);
 		}
 	});
 }
@@ -217,9 +227,11 @@ function removeTwoFour(id) {
 		data: {remove: id},
 		success: function(data) {
 			$("#newGame").html(data);
-			console.log("Removing");
-			if ($("#newGame:has(p.win)")) {
-				$(".myScoreBoardForm").addClass("show");
+			console.log("Removing card with index" + id);
+
+			if ($("p").hasClass("win")) {
+				$("#overlay").show();
+				$(".scoreBoardForm").show();
 			}
 		}
 	});
@@ -250,18 +262,19 @@ function refresh() {
 function resetTable() {
 	$.ajax({
 		type: "POST",
-		url: "views/myhighscore.php",
+		url: "pandakapall/playGame.php",
 		data: {resetTable: true},
 		success: function(data) {
-			$("h2").html(data);
+			console.log("Resetting table");
+			window.location.reload();
 		}
 	});
 }
 
-function myScoreBoard(e) {
+function scoreBoard(e) {
 	e.preventDefault();
 
-	var name = $(".myScoreBoardName").val();
+	var name = $(".scoreBoardName").val();
 
 	if (name !== "") {
 		$.ajax({
@@ -270,7 +283,7 @@ function myScoreBoard(e) {
 			data: {nameScoreBoard: name},
 			success: function(data) {
 				console.log(name + " moved to personal scoreboard");
-				$(".myScoreBoardName").val("");
+				$(".scoreBoardName").val("");
 				window.location.reload();
 			}
 		});

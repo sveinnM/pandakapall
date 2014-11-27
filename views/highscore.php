@@ -1,11 +1,11 @@
 <?php
-require("pandakapall/database.php");
-$db = new Database();
-$scores = $db->getHighestScores();
+	require("pandakapall/database.php");
+	$db = new Database();
+	$scores = $db->getHighestScores();
 ?>
 
 <main>
-	<div class="content highscore">
+	<div class="content">
 		<h2>Stigatafla</h2>
 		<table>
 			<thead>
@@ -16,8 +16,11 @@ $scores = $db->getHighestScores();
 			</thead>
 			<tbody>
 				<?php 
-				foreach ( $scores as $key => $line ) {
-						echo "<tr> <td><strong>" . $line['name'] . "</strong></td> <td>" . $line['score'] . "</td></tr>";
+					foreach ($scores as $key => $line) {
+						echo "<tr>";
+						echo "<td><strong>" . $line['name'] . "</strong></td>";
+						echo "<td>" . $line['score'] . "</td>";
+						echo "</tr>";
 					}
 				?>
 			</tbody>
