@@ -1,5 +1,5 @@
 <footer>
-	<p>&copy; Sveinn Már Ásgeirsson og Ólafur Hrafn Magnússon - Vefforritun 2014</p>
+	<p>&copy; Sveinn Már Ásgeirsson og Ólafur Magnússon - Vefforritun 2014</p>
 </footer>
 
 <div id="overlay">
