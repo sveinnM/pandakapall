@@ -43,13 +43,12 @@ $(document).ready(function() {
 		removeTwoFour(id);
 	});
 
-	// $("#moveLastButton").on("click", "button", function () {
-	// 	// console.log("movelast");
-	// 	moveLast();
-	// });
-
 	$(window).on("load", function() {
 		refresh();
+	});
+
+	$(".myScoreBoardForm").submit(function(e) {
+		myScoreBoard(e);
 	});
 });
 
@@ -97,7 +96,6 @@ function signUpEffect(e) {
 	});
 
 	$("#overlay").click(function() {
-		// $("#overlay, #signUpBox");	
 		$("#overlay, #signUpBox").hide();
 
 		$("#register").off("scroll touchmove mousewheel")
@@ -117,8 +115,6 @@ function stickyNav() {
 function signUp() {
 	var name = $("#name").val();
 	var nameID = $("#nameID").val();
-	// var str = "Velkomin/n ";
-	// str.substring(0,1).toUpperCase();
 
 	if (name !== "" && nameID !== "") {
 		$.ajax({
@@ -128,12 +124,7 @@ function signUp() {
 			success: function(data) {
 				console.log("User sign up");
 				$("#overlay, #signUpBox").hide();
-				// console.log(data);
 				window.location.reload();
-				// console.log(data);
-				// $("#newGame").append(data);
-				// $("#signUpDiv").empty();
-				// $("#signUpDiv").append("<strong><h3 id='welcome'>Velkomin/n " + name + "!</h3></strong>");
 			}
 		});
 	}
@@ -170,10 +161,9 @@ function pandaNewGame() {
 		data: {newGame: true},
 		success: function(data) {
 			console.log("Starting new game");
-			// $("#newGame").empty();
+			// $("#inputScoreName").empty();
 			$("#newGame").html(data);
-			// $("#addCard").show();
-			// $("#undo").show();
+			$(".myScoreBoardForm").removeClass("show");
 		}
 	});
 }
@@ -184,6 +174,8 @@ function drawCard() {
 		url: "pandakapall/playGame.php",
 		data: {drawCard: true},
 		success: function(data) {
+			console.log("Drawing 1 card");
+			$(".myScoreBoardForm").removeClass("show");
 			$("#newGame").html(data);
 		}
 	});
@@ -196,9 +188,10 @@ function undo() {
 		data: {undo: true},
 		success: function(data) {
 			console.log("Undo last move");
+			$(".myScoreBoardForm").removeClass("show");
 			$("#newGame").html(data);
 		}
-	})
+	});
 }
 
 function hint() {
@@ -207,9 +200,10 @@ function hint() {
 		url: "pandakapall/playGame.php",
 		data: {hint: true},
 		success: function(data) {
+			$(".myScoreBoardForm").removeClass("show");
 			$("#newGame").html(data);
 		}
-	})
+	});
 }
 
 function removeTwoFour(id) {
@@ -219,6 +213,10 @@ function removeTwoFour(id) {
 		data: {remove: id},
 		success: function(data) {
 			$("#newGame").html(data);
+			console.log("Removing");
+			if ($("#newGame:has(p.win)")) {
+				$(".myScoreBoardForm").addClass("show");
+			}
 		}
 	});
 }
@@ -243,4 +241,25 @@ function refresh() {
 			$("#newGame").html(data);
 		}
 	});
+}
+
+function myScoreBoard(e) {
+	e.preventDefault();
+
+	var name = $(".myScoreBoardName").val();
+
+	if (name !== "") {
+		$.ajax({
+			type: "POST",
+			url: "pandakapall/playGame.php",
+			data: {nameScoreBoard: name},
+			success: function(data) {
+				console.log(name + " moved to personal scoreboard");
+				$(".myScoreBoardName").val("");
+				window.location.reload();
+			}
+		});
+	} else if (name == "") {
+		$("#errorScoreBoardName").html("* Vinsamlegast settu inn nafn til að uppfæra stigatöflu");
+	}
 }
