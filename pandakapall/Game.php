@@ -99,7 +99,7 @@ class Game {
 			$lasthand = array_pop($this->handhistory);
 			$lastscore = array_pop($this->scorehistory) - $this->undo_punishment;
 
-			if (sizeof($this->hand) - sizeof($lasthand) == 1 && !$this->isDeckEmpty()) {
+			if (sizeof($this->hand) - sizeof($lasthand) === 1) {
 				$this->deck->putBack(array_pop($this->hand));
 			}
 

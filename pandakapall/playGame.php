@@ -41,18 +41,15 @@ switch ($method) {
 		if ($index !== false) {
 			$card =  $game->getHand()[$index];
 			echo "<label id='hintCard'>$index</label>";
-			// echo "<img class='img' id='hintCard' src='pandakapall/img/$card.png' height='100px' width='80px'>";
 		}
 		break;
 	case "remove":
 		$index = $_POST["remove"];
 
-		if ($game->checkTwo($index) and $game->checkFour($index)) {
-			//todo
+		if ($game->checkFour($index)) {
+			$game->removeFour($index);
 		} else if ($game->checkTwo($index)) {
 			$game->removeTwo($index);
-		} else if ($game->checkFour($index)) {
-			$game->removeFour($index);
 		}
 		break;
 	case "lastfirst":
@@ -63,22 +60,8 @@ switch ($method) {
 		break;
 }
 
-function refresh($game) {
-	$hendi = $game->getHand();
-	echo "<p id='score'>Þú ert með ". $game->getScore() ." stig</p>";
-
-	foreach ($hendi as $index => $card) {
-		echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' height='100px' width='80px'>";
-	}
-
-	if ($game->isDeckEmpty()) {
-		// setcookie("empty_cookie", uniqid(), time() + 86400*7, "/");
-		echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
-	}
-}
 
 refresh($game);
-
 if ($game->isWin() or isset($_POST["nameScoreBoard"])) {
 	$db = new Database();
 
@@ -96,6 +79,21 @@ if ($game->isWin() or isset($_POST["nameScoreBoard"])) {
 	$game = new Game();
 }
 
+$_SESSION["game"] = serialize($game);
+
+function refresh($game) {
+	$hendi = $game->getHand();
+	echo "<p id='score'>Þú ert með ". $game->getScore() ." stig</p>";
+
+	foreach ($hendi as $index => $card) {
+		echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' height='100px' width='80px'>";
+	}
+
+	if ($game->isDeckEmpty()) {
+		echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
+	}
+}
+
 if (isset($_POST["signOut"])) {
 	setcookie("login_cookie", uniqid(), time() - 86400, "/");
 	setcookie("name_cookie", uniqid(), time() - 86400, "/");
@@ -106,4 +104,3 @@ if (isset($_POST["resetTable"])) {
 	$db->resetMyScores();
 }
 
-$_SESSION["game"] = serialize($game);
