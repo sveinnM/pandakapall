@@ -51,7 +51,6 @@ switch ($method) {
 	default:
 		break;
 }
-var_dump($_SESSION['score']);
 
 refresh($game);
 if ($game->isWin() or isset($_POST["nameScoreBoard"])) {
