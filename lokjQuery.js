@@ -51,6 +51,10 @@ $(document).ready(function() {
 		refresh();
 	});
 
+	$("#moveLast").click(function() {
+		moveLast();
+	})
+
 	$(".scoreBoardForm").submit(function(e) {
 		scoreBoard(e);
 	});
@@ -105,6 +109,8 @@ function signUpEffect(e) {
 
 	$("#overlay").click(function() {
 		$("#overlay, #signUpBox").hide();
+
+		$("#name, #nameID").val("");
 
 		$("#register").off("scroll touchmove mousewheel")
 	});
@@ -177,9 +183,9 @@ function pandaNewGame() {
 		data: {newGame: true},
 		success: function(data) {
 			console.log("Starting new game");
-			// $("#inputScoreName").empty();
 			$("#newGame").html(data);
-			$(".scoreBoardForm").hide();
+
+			$("#moveLast").hide();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			console.log("Object: " + XMLHttpRequest);
@@ -195,8 +201,11 @@ function drawCard() {
 		data: {drawCard: true},
 		success: function(data) {
 			console.log("Drawing 1 card");
-			$(".scoreBoardForm").hide();
 			$("#newGame").html(data);
+
+			if ($("label").hasClass("emptyDeck")) {
+				$("#moveLast").show();
+			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			console.log("Object: " + XMLHttpRequest);
@@ -212,8 +221,9 @@ function undo() {
 		data: {undo: true},
 		success: function(data) {
 			console.log("Undo last move");
-			$(".scoreBoardForm").hide();
 			$("#newGame").html(data);
+
+			$("#moveLast").hide();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			console.log("Object: " + XMLHttpRequest);
@@ -257,6 +267,8 @@ function removeTwoFour(id) {
 				$("#overlay").show();
 				$(".scoreBoardForm").show();
 			}
+
+			$("#moveLast").hide();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			console.log("Object: " + XMLHttpRequest);
@@ -287,6 +299,10 @@ function refresh() {
 		data: {load: true},
 		success: function(data) {
 			$("#newGame").html(data);
+
+			if ($("label").hasClass("emptyDeck")) {
+				$("#moveLast").show();
+			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			console.log("Object: " + XMLHttpRequest);
