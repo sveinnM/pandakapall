@@ -11,11 +11,11 @@ class Database {
 
 		$file_db->exec("CREATE TABLE IF NOT EXISTS Highscores (
         				name TEXT, 
-        				score TEXT)");
+        				score INTEGER)");
 
 		$file_db->exec("CREATE TABLE IF NOT EXISTS MyHighscore (
         				name TEXT, 
-        				score TEXT,
+        				score INTEGER,
         				key TEXT)");
 
 		$this->pdo = $file_db;

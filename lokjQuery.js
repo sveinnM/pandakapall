@@ -133,7 +133,7 @@ function signUp() {
 	if (name !== "" && nameID !== "") {
 		$.ajax({
 			type: "POST",
-			url: "pandakapall/playGame.php",
+			url: "user_log.php",
 			data: {nameID: nameID, name: name},
 			success: function(data) {
 				console.log("User sign up");
@@ -163,7 +163,7 @@ function signUp() {
 function signOut() {
 	$.ajax({
 		type: "POST",
-		url: "pandakapall/playGame.php",
+		url: "user_log.php",
 		data: {signOut: true},
 		success: function(data) {
 			console.log("Signing out");

@@ -3,14 +3,6 @@ require("CardDeck.php");
 require("Game.php");
 require("database.php");
 
-if (isset($_POST["nameID"])) {
-	$cookie_value = md5($_POST["nameID"]);
-	$cookie_namevalue = $_POST["name"];
-
-	setcookie("login_cookie", $cookie_value, time() + 86400, "/");
-	setcookie("name_cookie", $cookie_namevalue, time() + 86400, "/");
-}
-
 session_start();
 
 if (isset($_SESSION["game"]) && isset($_SESSION["timeStamp"]) && (time() - $_SESSION["timeStamp"] < 86400*7)) {
@@ -59,24 +51,22 @@ switch ($method) {
 	default:
 		break;
 }
-
+var_dump($_SESSION['score']);
 
 refresh($game);
 if ($game->isWin() or isset($_POST["nameScoreBoard"])) {
 	$db = new Database();
+	$_SESSION["score"] = $game->getScore();
 
 	if (isset($_POST["nameScoreBoard"])) {
-		$db->insertIntoHighscores($_POST["nameScoreBoard"], $_SESSION["score"]);
+		$db->insertIntoHighscores($_POST["nameScoreBoard"], intval($_SESSION["score"]));
+		$game = new Game();
 	} else {
 		if (isset($_COOKIE["login_cookie"])) {
-			$_SESSION["score"] = $game->getScore();
-			$db->insertIntoMyHighscores($_COOKIE["name_cookie"], $_SESSION["score"], $_COOKIE["login_cookie"]);
+			$db->insertIntoMyHighscores($_COOKIE["name_cookie"], intval($_SESSION["score"]), $_COOKIE["login_cookie"]);
 		}
-
 	  	echo "<p class='win'><strong>WINNER WINNER CHICKEN DINNER</strong></p>";
 	}
-
-	$game = new Game();
 }
 
 $_SESSION["game"] = serialize($game);
@@ -90,13 +80,8 @@ function refresh($game) {
 	}
 
 	if ($game->isDeckEmpty()) {
-		echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
+		echo "<label class='emptyDeck'>EmptyDeck</label>";
 	}
-}
-
-if (isset($_POST["signOut"])) {
-	setcookie("login_cookie", uniqid(), time() - 86400, "/");
-	setcookie("name_cookie", uniqid(), time() - 86400, "/");
 }
 
 if (isset($_POST["resetTable"])) {
