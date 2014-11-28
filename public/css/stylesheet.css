@@ -27,15 +27,11 @@ form#signUpBox {
 	display: none;
 }
 
-div.signUpSet {
-	position: relative;
-	padding: 1em;
-}
+div.signUpSet {position: relative;	padding: 1em;}
 
-form#signUpBox div.signUpSet label#errorName, label#errorNameID, label#errorScoreBoardName {
-	color: red;
-	font-size: 0.8em;
-}
+form#signUpBox div.signUpSet label#errorName, label#errorNameID, label#errorScoreBoardName {color: red;		font-size: 0.8em;}
+
+label#hintName, label#hintNameID {padding-left: 1em;}
 
 div#signUpDiv {
 	position: absolute;
@@ -50,9 +46,7 @@ div#signUpDiv a {
 	color: blue;
 }
 
-div#signUpDiv a:visited {
-	color: blue;
-}
+div#signUpDiv a:visited {color: blue;}
 
 input[type="text"], input[type="password"], textarea {
 	height: 25px;
@@ -106,10 +100,7 @@ nav.navbar a {
 	padding: 1em;
 }
 
-nav.navbar:hover a {
-	opacity: 0.4;
-	transition: opacity 0.5s;
-}
+nav.navbar:hover a {opacity: 0.4;	transition: opacity 0.5s;}
 
 nav.navbar a:hover {
 	color: #fff;
@@ -132,10 +123,7 @@ nav.navbarSticky a {
 	padding: 1em;
 }
 
-nav.navbarSticky:hover a {
-	opacity: 0.4;
-	transition: opacity 0.5s;
-}
+nav.navbarSticky:hover a {opacity: 0.4;		transition: opacity 0.5s;}
 
 nav.navbarSticky a:hover {
 	color: #fff;
@@ -150,23 +138,15 @@ main div.content {
 	overflow: hidden;
 }
 
-main div.highscore {
-	width: 1000px;
-}
+main div.highscore {width: 1000px;}
 
-main div.content form#contactForm {
-	padding-top: 3em;
-}
+main div.content form#contactForm {padding-top: 3em;}
 
-main div.contactMe {
-	padding-bottom: 1em;
-}
+main div.contactMe {padding-bottom: 1em;}
 
 main div.contactMe input[type="text"] {width: 210px;}
-main div.contactMe textarea {
-	width: 300px;
-	height: 100px;
-}
+
+main div.contactMe textarea {width: 300px;	height: 100px;}
 
 input[type="button"], button {
 	color: #fff;
@@ -180,7 +160,13 @@ input[type="button"], button {
 	border: 0;
 }
 
-input[type="button"]:hover, button:hover {cursor: pointer; background: linear-gradient(to bottom, #5F89B4 0%,#0F4579 100%)}
+input[type="button"]:hover, button:hover {cursor: pointer;	background: linear-gradient(to bottom, #5F89B4 0%,#0F4579 100%)}
+
+label.emptyDeck {display: none;}
+
+button#moveLast {display: none;}
+
+div#moveLastDiv {padding-top: 0.2em;}
 
 footer {
 	font-size: 0.8em;
@@ -188,9 +174,7 @@ footer {
 	border-top: 1px solid #ccc;
 }
 
-div#newGame {
-	padding: 2em;
-}
+div#newGame {padding: 2em;}
 
 div#newGame img.img {
 	position: relative;
@@ -212,15 +196,9 @@ form.scoreBoardForm {
 	display: none;
 }
 
-div#scoreBoardNameDiv {
-	position: relative;
-	/*margin: 0 auto;*/
-	padding: 1.5em;
-}
+div#scoreBoardNameDiv {position: relative;	padding: 1.5em;}
 
-span.close:before {
-	content: "x";
-}
+span.close:before {content: "x";}
 
 span.close {
 	position: absolute;
@@ -229,19 +207,9 @@ span.close {
 	cursor: pointer;
 }
 
-/*form.show {
-	display: block;
-}*/
+label#hintCard {display: none;}
 
-label#hintCard {
-	display: none;
-}
-
-img.hintCard {
-    /*-webkit-filter: opacity(0.1);*/
-    opacity: 0.2;
-    /*-webkit-transition: opacity 5s;*/
-}
+img.hintCard {opacity: 0.2;}
 
 /*
 Design of highscore table starts here
@@ -283,14 +251,9 @@ th:after {
 	width: 100%;
 }
 
-th:first-child {
-	border-left: 1px solid #777;	
-	box-shadow: inset 1px 1px 0 #999;
-}
+th:first-child {border-left: 1px solid #777;	box-shadow: inset 1px 1px 0 #999;}
 
-th:last-child {
-	box-shadow: inset -1px 1px 0 #999;
-}
+th:last-child {box-shadow: inset -1px 1px 0 #999;}
 
 td {
 	border-right: 1px solid #fff;
@@ -302,39 +265,21 @@ td {
 	transition: all 300ms;
 }
 
-td:first-child {
-	box-shadow: inset 1px 0 0 #fff;
-}	
+td:first-child {box-shadow: inset 1px 0 0 #fff;}	
 
-td:last-child {
-	box-shadow: inset -1px 0 0 #fff;
-}	
+td:last-child {box-shadow: inset -1px 0 0 #fff;}	
 
-tr:nth-child(odd) td {
-	background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	
-}
+tr:nth-child(odd) td {background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	}
 
-tr:last-of-type td {
-	box-shadow: inset 0 -1px 0 #fff; 
-}
+tr:last-of-type td {box-shadow: inset 0 -1px 0 #fff; }
 
-tr:last-of-type td:first-child {
-	box-shadow: inset 1px -1px 0 #fff;
-}	
+tr:last-of-type td:first-child {box-shadow: inset 1px -1px 0 #fff;}	
 
-tr:last-of-type td:last-child {
-	box-shadow: inset -1px -1px 0 #fff;
-}	
+tr:last-of-type td:last-child {box-shadow: inset -1px -1px 0 #fff;}	
 
-tbody:hover td {
-	color: transparent;
-	text-shadow: 0 0 3px #aaa;
-}
+tbody:hover td {color: transparent;		text-shadow: 0 0 3px #aaa;}
 
-tbody:hover tr:hover td {
-	color: #444;
-	text-shadow: 0 1px 0 #fff;
-}
+tbody:hover tr:hover td {color: #444;	text-shadow: 0 1px 0 #fff;}
 
 /*
 End of highscore design

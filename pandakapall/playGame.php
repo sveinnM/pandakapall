@@ -41,8 +41,8 @@ switch ($method) {
 		if ($index !== false) {
 			$card =  $game->getHand()[$index];
 			echo "<label id='hintCard'>$index</label>";
-			// echo "<img class='img' id='hintCard' src='pandakapall/img/$card.png' height='100px' width='80px'>";
 		}
+
 		break;
 	case "remove":
 		$index = $_POST["remove"];
@@ -68,12 +68,11 @@ function refresh($game) {
 	echo "<p id='score'>Þú ert með ". $game->getScore() ." stig</p>";
 
 	foreach ($hendi as $index => $card) {
-		echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' height='100px' width='80px'>";
+		echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' title='$card'>";
 	}
 
 	if ($game->isDeckEmpty()) {
-		// setcookie("empty_cookie", uniqid(), time() + 86400*7, "/");
-		echo "<button id='moveLast' onclick='moveLast()'>Put last card first</button>";
+		echo "<label class='emptyDeck'>EmptyDeck</label>";
 	}
 }
 

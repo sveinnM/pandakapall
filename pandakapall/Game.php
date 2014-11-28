@@ -94,7 +94,7 @@ class Game {
 		return False;
 	}
 
-	public function undo(){
+	public function undo() {
 		if (sizeof($this->handhistory) > 0) {
 			$lasthand = array_pop($this->handhistory);
 			$lastscore = array_pop($this->scorehistory) - $this->undo_punishment;
@@ -109,7 +109,7 @@ class Game {
 		}
 	}
 
-	public function hint(){
+	public function hint() {
 		for ($i=0; $i < sizeof($this->hand); $i++) { 
 
 			if ($this->checkTwo($i) or $this->checkFour($i)) {
@@ -140,7 +140,7 @@ class Game {
 		if (sizeof($this->hand) <= 2) {
 			return True;
 		}
-		
+
 		return False;
 	}
 }
