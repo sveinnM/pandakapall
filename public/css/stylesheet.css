@@ -13,15 +13,11 @@ div#overlay {
 	width: 100%;
 	height: 100%;
 	opacity: 0.1;
-	z-index: 100;
+	z-index: 998;
 	display: none;
 }
 
 form#signUpBox {
-	position: fixed;
-	top: 150px;
-	left: 550px;
-	z-index: 101;
 	background: #faf9f0;
 	border-radius: 1em;
 	display: none;
@@ -59,6 +55,11 @@ div#signUpDiv a {
 	color: blue;
 }
 
+a.signOut {
+	cursor: pointer;
+	/*padding: 1em 0;*/
+}
+
 div#signUpDiv a:visited {color: blue;}
 
 input[type="text"], input[type="password"], textarea {
@@ -85,7 +86,7 @@ header {
 	width: 100%;
 	top: 0;
 	left: 0;
-	height: 30%;
+	height: 200px;
 	font-family: 'Quicksand';
 	background: #fa5b4d;
 	position: absolute;
@@ -182,8 +183,9 @@ button#moveLast {display: none;}
 div#moveLastDiv {padding-top: 0.2em;}
 
 footer {
+	position: relative;
 	font-size: 0.8em;
-	margin: 0 500px;
+	/*margin: 0 500px;*/
 	border-top: 1px solid #ccc;
 }
 
@@ -235,7 +237,7 @@ table {
 	line-height: 24px;
 	margin: 30px auto;
 	text-align: left;
-	width: 800px;
+	width: 600px;
 }	
 
 th {
@@ -302,4 +304,70 @@ End of highscore design
   -webkit-box-sizing: border-box; 
   -moz-box-sizing: border-box; 
   box-sizing: border-box;
+}
+
+/*
+Beginning of media query:
+*/
+
+a.dropDownMenu {
+	display: none;
+	font-size: 2em;
+	/*text-align: center;*/
+	/*width: 30px;*/
+	/*height: 30px;*/
+}
+
+div.dropDownMenuBar, div.dropDownMenuBar ul li a {
+	display: none;
+	list-style-type: none;
+}
+
+@media only screen and (max-width: 750px), only screen and (max-device-width: 750px) {
+
+	a.defaultNavbar, div#signUpDiv, nav.navbarSticky, nav.navbarSticky a, div.dropDownMenuBar {display: none;}
+
+	a.dropDownMenu {display: inherit;	cursor: pointer;}
+
+	nav.navbar a {padding: 0;	padding-left: 0.5em;}
+
+	header {
+		height: 50px;
+		position: fixed;
+		z-index: 150;
+	}
+
+	header h1 {margin-top: 10px;}
+
+	main div.content {
+		margin: 150px auto;
+		width: 100%;
+		padding: 0 2em 0 2em;
+	}
+
+	div.dropDownMenuBar {
+	position: fixed;
+	width: 300px;
+	height: 100%;
+	top: 51px;
+	background: #fa5b4d;
+	border-right: 1px solid #fff;
+	}
+
+	div.dropDownMenuBar ul li {
+		list-style-type: none;
+		font-size: 1.5em;
+		padding: 0.5em;
+		border-bottom: 1px solid #fff;
+	}
+
+	div.dropDownMenuBar ul li a, a:visited {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+	}
+
+	table {
+		width: 100%;
+	}
 }

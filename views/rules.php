@@ -60,15 +60,14 @@
 			<br>
 			<br>
 			<h3>Stigagjöf</h3>
-			<p>Gefin eru 100 stig til að byrja með</p>
-			<p>Hint dregur engin stig en Put Last First og Draw draga 1 stig hvort</p>
-			<p>Veitt eru 10 stig fyrir að fjarlægja 2 spil en 25 stig fyrir að fjarlægja 4 spil</p>
+			<p>Gefin eru 100 stig til að byrja með.</p>
+			<p>Hint dregur engin stig en Put Last First og Draw draga 1 stig hvort.</p>
+			<p>Veitt eru 10 stig fyrir að fjarlægja 2 spil en 25 stig fyrir að fjarlægja 4 spil.</p>
 			<p>Undo virkar á eftirfarandi hátt:</p>
 			<p>	Hækkar upp refsingu um 2 stig hvert sinn sem klikkað er á undo,
 				ef ýtt er oft á undo í röð er þó dregið aðeins 1 stig fyrir hvert undo á eftir því fyrsta
 				EN refsingin heldur áfram að hækka. Einungis fyrsta undo eftir aðra aðgerð dregur niður 
-				um fulla refsingu
+				um fulla refsingu.
 			</p>
-		</p>
 	</div>
 </main>
