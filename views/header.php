@@ -7,10 +7,10 @@
   <link href="public/css/stylesheet.css" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet" type="text/css">
 </head>
-<body>
-<header>
+<body role="document">
+<header role="header">
 
-  <h1>Panda kapall.</h1>
+  <h1 role="heading">Panda kapall.</h1>
 
   <div id="signUpDiv">
     <?php 
@@ -25,46 +25,46 @@
       <?php } ?>
   </div>
 
-  <nav class="navbar">
-    <a class="dropDownMenu">&#9776;</a> <!-- 3 línur -->
-    <a class="home defaultNavbar" href="index.php">Heim</a>
-    <a class="play defaultNavbar" href="index.php?part=play">Spila</a>
-    <a class="highscore defaultNavbar" href="index.php?part=highscore">Stigatafla</a>
+  <nav class="navbar" role="navigation">
+    <a class="dropDownMenu" role="menuitem">&#9776;</a> <!-- 3 línur -->
+    <a class="home defaultNavbar" href="index.php" role="menuitem">Heim</a>
+    <a class="play defaultNavbar" href="index.php?part=play" role="menuitem">Spila</a>
+    <a class="highscore defaultNavbar" href="index.php?part=highscore" role="menuitem">Stigatafla</a>
     <?php
       // Your personal scoreboard appears in the navigation if you're logged in.
       if (isset($_COOKIE["login_cookie"])) {
-    ?>  <a class="myHighscore defaultNavbar" href="index.php?part=myhighscore">Mín stigatafla</a>
+    ?>  <a class="myHighscore defaultNavbar" href="index.php?part=myhighscore" role="menuitem">Mín stigatafla</a>
     <?php    
       }
     ?>
-    <a class="about defaultNavbar" href="index.php?part=about">Um síðu</a>
-    <a class="rules defaultNavbar" href="index.php?part=rules">Reglur</a>
-    <a class="contact defaultNavbar" href="index.php?part=contact">Hafa samband</a>
+    <a class="about defaultNavbar" href="index.php?part=about" role="menuitem">Um síðu</a>
+    <a class="rules defaultNavbar" href="index.php?part=rules" role="menuitem">Reglur</a>
+    <a class="contact defaultNavbar" href="index.php?part=contact" role="menuitem">Hafa samband</a>
   </nav>
 
-  <div class="dropDownMenuBar">
-    <ul>
-      <li><a class="home" href="index.php">Heim</a></li>
-      <li><a class="play" href="index.php?part=play">Spila</a></li>
-      <li><a class="highscore" href="index.php?part=highscore">Stigatafla</a></li>
+  <nav class="dropDownMenuBar" role="dropdown navigation">
+    <ul role="list">
+      <li role="listitem"><a class="home" href="index.php" role="menuitem">Heim</a></li>
+      <li role="listitem"><a class="play" href="index.php?part=play" role="menuitem">Spila</a></li>
+      <li role="listitem"><a class="highscore" href="index.php?part=highscore" role="menuitem">Stigatafla</a></li>
       <?php
         // Your personal scoreboard appears in the navigation if you're logged in.
         if (isset($_COOKIE["login_cookie"])) {
-      ?>  <li><a class="myHighscore" href="index.php?part=myhighscore">Mín stigatafla</a></li>
+      ?>  <li role="listitem"><a class="myHighscore" href="index.php?part=myhighscore" role="menuitem">Mín stigatafla</a></li>
       <?php    
         }
       ?>
-      <li><a class="about" href="index.php?part=about">Um síðu</a></li>
-      <li><a class="rules" href="index.php?part=rules">Reglur</a></li>
-      <li><a class="contact" href="index.php?part=contact">Hafa samband</a></li>
-      <li>
+      <li role="listitem"><a class="about" href="index.php?part=about" role="menuitem">Um síðu</a></li>
+      <li role="listitem"><a class="rules" href="index.php?part=rules" role="menuitem">Reglur</a></li>
+      <li role="listitem"><a class="contact" href="index.php?part=contact" role="menuitem">Hafa samband</a></li>
+      <li role="listitem">
       <?php 
         if (isset($_COOKIE["login_cookie"]) && isset($_COOKIE["name_cookie"])) {
       ?>
-          <a class="signOut">Skrá út</a></li>
+          <a class="signOut" role="menuitem">Skrá út</a></li>
       <?php
         } else { ?>
-          <p><a href="index.php?part=register" class="register">Skrá inn</a></p></li>
+          <p><a href="index.php?part=register" class="register" role="menuitem">Skrá inn</a></p></li>
       <?php 
         } 
       ?>

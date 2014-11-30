@@ -185,7 +185,6 @@ div#moveLastDiv {padding-top: 0.2em;}
 footer {
 	position: relative;
 	font-size: 0.8em;
-	/*margin: 0 500px;*/
 	border-top: 1px solid #ccc;
 }
 
@@ -201,11 +200,9 @@ div#newGame img.img {
 	margin-top: 20px;
 }
 
+img.img {width: 80px;	height: 100px;}
+
 form.scoreBoardForm {
-	position: fixed;
-	top: 150px;
-	left: 550px;
-	z-index: 101;
 	background: #faf9f0;
 	border-radius: 1em;
 	display: none;
@@ -310,22 +307,15 @@ End of highscore design
 Beginning of media query:
 */
 
-a.dropDownMenu {
-	display: none;
-	font-size: 2em;
-	/*text-align: center;*/
-	/*width: 30px;*/
-	/*height: 30px;*/
+a.dropDownMenu {display: none;	font-size: 2em;
 }
 
-div.dropDownMenuBar, div.dropDownMenuBar ul li a {
-	display: none;
-	list-style-type: none;
+nav.dropDownMenuBar, nav.dropDownMenuBar ul li a {display: none;	list-style-type: none;
 }
 
 @media only screen and (max-width: 750px), only screen and (max-device-width: 750px) {
 
-	a.defaultNavbar, div#signUpDiv, nav.navbarSticky, nav.navbarSticky a, div.dropDownMenuBar {display: none;}
+	a.defaultNavbar, div#signUpDiv, nav.navbarSticky, nav.navbarSticky a, nav.dropDownMenuBar {display: none;}
 
 	a.dropDownMenu {display: inherit;	cursor: pointer;}
 
@@ -345,7 +335,7 @@ div.dropDownMenuBar, div.dropDownMenuBar ul li a {
 		padding: 0 2em 0 2em;
 	}
 
-	div.dropDownMenuBar {
+	nav.dropDownMenuBar {
 	position: fixed;
 	width: 300px;
 	height: 100%;
@@ -354,20 +344,18 @@ div.dropDownMenuBar, div.dropDownMenuBar ul li a {
 	border-right: 1px solid #fff;
 	}
 
-	div.dropDownMenuBar ul li {
+	nav.dropDownMenuBar ul li {
 		list-style-type: none;
 		font-size: 1.5em;
 		padding: 0.5em;
 		border-bottom: 1px solid #fff;
 	}
 
-	div.dropDownMenuBar ul li a, a:visited {
+	nav.dropDownMenuBar ul li a, a:visited {
 		text-decoration: none;
 		color: inherit;
 		display: block;
 	}
 
-	table {
-		width: 100%;
-	}
+	table {width: 100%;}
 }

@@ -242,7 +242,7 @@ function pandaNewGame() {
 			$("#newGame").html(data);
 
 			$("#moveLast").hide();
-		},
+		}, 
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			console.log("Object: " + XMLHttpRequest);
 			console.log("Error: " + textStatus);
@@ -343,6 +343,7 @@ function removeTwoFour(id) {
 
 			if ($("p").hasClass("win")) {
 				$("#overlay").show();
+				center(".scoreBoardForm", "999");
 				$(".scoreBoardForm").show();
 			}
 			// $("#moveLast").hide();

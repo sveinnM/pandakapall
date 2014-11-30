@@ -99,7 +99,7 @@ function refresh($game) {
 	echo "<p id='score'>Þú ert með ". $game->getScore() ." stig</p>";
 
 	foreach ($hendi as $index => $card) {
-		echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' height='100px' width='80px'>";
+		echo "<img class='img' data-id='$index' src='pandakapall/img/$card.png' alt='Card: $card' role='img'>";
 	}
 
 	if ($game->isDeckEmpty()) {

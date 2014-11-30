@@ -1,5 +1,5 @@
-<main>
-	<div class="content">
+<main role="main">
+	<div class="content" role="content">
 		<h2>Velkomin/n!</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus facilisis diam quis sodales. 
   		Integer rhoncus eros quis sapien congue, non placerat nibh gravida. Aliquam erat volutpat. Pellentesque 
